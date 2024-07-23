@@ -31,6 +31,12 @@ export const BASIC_MENU = [
         path: "/async/basic/post2",
         icon: <IoCreateOutline />
     },
+    {
+        id: 6,
+        name: "Promise학습",
+        path: "/async/basic/promise",
+        icon: <IoCreateOutline />
+    },
 
 
 ]

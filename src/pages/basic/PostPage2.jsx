@@ -7,8 +7,8 @@ function PostPage2(props) {
     const [ product, setProduct ] = useState({
         productName: "",
         price: "",
-        size: "",
-        color: "",
+        sizeId: "",
+        colorId: "",
     });
 
     const handleInputChange = (e) => {
@@ -22,12 +22,24 @@ function PostPage2(props) {
 
     const handleSubmitClick = async () => {
         try {
-            const response = await axios.post();
+            const response = await axios.post("http://localhost:8080/basic/product", product);  //프로미스에 await 달아서 하나의 then 이다
+            console.log(response);
         } catch(error) {
             console.error(error);
         }
 
     }
+
+    // const handleSubmitClick2 = async () => {
+    //     let
+    //     try {
+    //         const response = await axios.post("http://localhost:8080/basic/product", product);  //프로미스에 await 달아서 하나의 then 이다
+    //         console.log(response);
+    //     } catch(error) {
+    //         console.error(error);
+    //     }
+
+    // }
 
     return (
         <>
@@ -50,7 +62,7 @@ function PostPage2(props) {
                 </p>
                 <p>
                     <label htmlFor="">사이즈</label>
-                    <select name='size' onChange={handleInputChange} >
+                    <select name='sizeId' onChange={handleInputChange} >
                         {
                             SIZE_OPTIONS.map(size => 
                             <option key={size.id} value={size.id}>{size.name}</option>)
@@ -60,7 +72,7 @@ function PostPage2(props) {
                 </p>
                 <p>
                     <label htmlFor="">색상</label>
-                    <select name='color' onChange={handleInputChange} >
+                    <select name='colorId' onChange={handleInputChange} >
                         {
                             COLOR_OPTIONS.map(color => 
                             <option key={color.id} value={color.id}>{color.name}</option>)
